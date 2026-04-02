@@ -10,6 +10,7 @@ import ReviewCard from "@/components/ReviewCard";
 import { homeServiceCards } from "@/data/home-services";
 import { reviews } from "@/data/reviews";
 import { pageHeroSectionClassName } from "@/lib/page-hero";
+import { HOME_HERO_SRC } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Garage Nagel GmbH – Ihre Vertrauensgarage in Steinhausen ZG",
@@ -42,7 +43,7 @@ export default function Home() {
       <section className={pageHeroSectionClassName}>
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/images/hero-garage.jpg"
+            src={HOME_HERO_SRC}
             alt="Garage Nagel GmbH – Werkstatt in Steinhausen"
             fill
             className="animate-ken-burns object-cover object-center"

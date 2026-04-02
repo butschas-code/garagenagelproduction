@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useContactDrawer } from "@/contexts/ContactDrawerContext";
+import { SITE_LOGO_SRC } from "@/lib/site";
 
 const navRoutes = [
   { label: "Startseite", href: "/" },
@@ -52,14 +53,14 @@ export default function Navigation() {
         aria-hidden
       />
       <nav className="relative mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-6 lg:px-8">
-        <Link href="/" className="relative z-10 flex shrink-0 items-center" aria-label="Startseite">
-          <span className="relative block h-9 w-[11.5rem] sm:h-10 sm:w-[13.5rem]">
+        <Link href="/" className="relative z-10 flex min-w-0 shrink-0 items-center" aria-label="Startseite">
+          <span className="relative block aspect-[1240/360] w-[min(100%,9.25rem)] max-w-[calc(100vw-10rem)] sm:w-[11rem] sm:max-w-none lg:w-[13rem]">
             <Image
-              src="/images/logo.jpg"
+              src={SITE_LOGO_SRC}
               alt="Garage Nagel"
               fill
               className="object-contain object-left"
-              sizes="(max-width: 640px) 184px, 216px"
+              sizes="(max-width: 640px) 148px, (max-width: 1024px) 176px, 208px"
               priority
             />
           </span>

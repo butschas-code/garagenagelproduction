@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "copy-logo": "cp \"$HOME/Desktop/Screenshot 2026-04-02 at 17.23.25.png\" \"public/images/logo.jpg\""
+    "copy-logo": "cp \"$HOME/Desktop/Screenshot 2026-04-02 at 18.55.32.png\" \"public/images/logo.png\"",
+    "copy-home-hero": "cp \"$HOME/Downloads/hero header.jpg\" \"public/images/home-hero.jpg\""
   },
   "dependencies": {
     "framer-motion": "^12.38.0",

@@ -76,10 +76,10 @@ export default function UeberUns() {
         <div className="hero-vignette absolute inset-0 z-[2]" />
         <HeroAmbience />
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl [text-shadow:0_4px_40px_rgb(0_0_0/0.45)]">
             Über uns
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl [text-shadow:0_2px_16px_rgb(0_0_0/0.35)]">
             Die Geschichte hinter der Garage Nagel — und dem Mann mit Benzin im Herzen.
           </p>
         </div>

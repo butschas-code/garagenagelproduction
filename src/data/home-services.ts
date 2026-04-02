@@ -1,57 +1,66 @@
-/** Symbolfotos (Unsplash) — passend zu den Leistungen auf der Startseite. */
-export const homeServiceCards = [
-  {
-    title: "Service & Wartung",
+import { leistungen } from "./leistungen";
+
+/** Gleiche Einträge / Bilder wie die entsprechenden Sektionen auf /dienstleistungen (Reihenfolge Startseite). */
+const HOME_PREVIEW_ORDER = [
+  "service",
+  "reparaturen",
+  "reifen",
+  "mfk",
+  "unfall",
+  "scheiben",
+] as const;
+
+type HomePreviewId = (typeof HOME_PREVIEW_ORDER)[number];
+
+/** Kurztexte & Links der Startseiten-Karten (Titel/Bild kommen aus `leistungen`). */
+const HOME_CARD_COPY: Record<
+  HomePreviewId,
+  { description: string; href: string; titleOverride?: string }
+> = {
+  service: {
     description:
       "Regelmässiger Service für fast alle Marken und Modelle. Ihr Fahrzeug in besten Händen.",
     href: "/dienstleistungen#service",
-    imageSrc:
-      "https://images.unsplash.com/photo-1486262715619-067b21ffcc38?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Motorraum und Fahrzeugwartung",
   },
-  {
-    title: "Reparaturen",
+  reparaturen: {
     description:
       "Fachgerechte Reparaturen aller Art — von Bremsen bis Motor. Ehrlich und transparent.",
     href: "/dienstleistungen#reparaturen",
-    imageSrc:
-      "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Werkstatt mit Fahrzeug auf der Hebebühne",
   },
-  {
-    title: "Reifenservice",
+  reifen: {
     description:
       "Reifenverkauf, Montage und Reifenhotel. Top-Konditionen für Continental, Uniroyal, Barum und Semperit.",
     href: "/dienstleistungen#reifen",
-    imageSrc:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Autoreifen und Profil",
   },
-  {
-    title: "MFK & Prüfungen",
+  mfk: {
     description:
       "MFK-Bereitstellung und anerkannte RBV-Stelle des Strassenverkehrsamtes Kanton Zug.",
     href: "/dienstleistungen#mfk",
-    imageSrc:
-      "https://images.unsplash.com/photo-1449965408869-eaa3f722e40c?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Fahrzeug auf der Strasse, Sicherheit",
   },
-  {
-    title: "Unfallreparatur",
+  unfall: {
     description:
       "Koordination mit Versicherungen, qualifizierte Partner für Karosserie und Lackierung.",
     href: "/dienstleistungen#unfall",
-    imageSrc:
-      "https://images.unsplash.com/photo-1615906655593-ad6380169265?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Karosserie- und Schweissarbeit",
   },
-  {
-    title: "Scheiben & Zubehör",
+  scheiben: {
+    titleOverride: "Scheiben & Zubehör",
     description:
       "Steinschlag-Reparatur, Scheibenersatz, DAB-Geräte, Anhängerkupplungen und mehr.",
     href: "/dienstleistungen#scheiben",
-    imageSrc:
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Fahrzeugfront mit Windschutzscheibe",
   },
-] as const;
+};
+
+export const homeServiceCards = HOME_PREVIEW_ORDER.map((id) => {
+  const entry = leistungen.find((l) => l.id === id);
+  if (!entry) {
+    throw new Error(`homeServiceCards: missing leistung id "${id}"`);
+  }
+  const copy = HOME_CARD_COPY[id];
+  return {
+    title: copy.titleOverride ?? entry.title,
+    description: copy.description,
+    href: copy.href,
+    imageSrc: entry.imageSrc,
+    imageAlt: entry.imageAlt,
+  };
+});

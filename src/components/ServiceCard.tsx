@@ -35,25 +35,26 @@ export default function ServiceCard({
       }
     >
       <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl bg-white shadow-[0_4px_24px_rgb(12_12_15/0.06)] transition-shadow duration-500 group-hover:shadow-[0_20px_48px_rgb(200_16_46/0.12)]">
-        <div className="relative aspect-[5/3] w-full shrink-0 overflow-hidden bg-neutral-100">
+        <div className="relative min-h-[11rem] w-full flex-1 overflow-hidden bg-neutral-100">
           <Image
             src={imageSrc}
             alt={imageAlt}
             fill
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+            unoptimized
+            className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            quality={80}
+            quality={85}
           />
           <div
             className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent opacity-80"
             aria-hidden
           />
         </div>
-        <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <div className="flex shrink-0 flex-col p-6 sm:p-7">
           <h3 className="font-display text-lg font-semibold leading-snug text-primary">
             {title}
           </h3>
-          <p className="mt-3 line-clamp-4 flex-1 text-sm leading-relaxed text-neutral-500">
+          <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-neutral-500">
             {description}
           </p>
         </div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactTrigger from "@/components/ContactTrigger";
 import CookieSettingsLink from "@/components/CookieSettingsLink";
+import { SITE_LOGO_SRC } from "@/lib/site";
 
 const services = [
   { label: "Service & Wartung", href: "/dienstleistungen#service" },
@@ -23,13 +24,13 @@ export default function Footer() {
           {/* Company */}
           <div>
             <div className="mb-5 inline-block rounded-lg bg-white p-2 shadow-sm">
-              <span className="relative block h-9 w-[11.5rem] sm:h-10 sm:w-[13.5rem]">
+              <span className="relative block aspect-[1240/360] w-44 max-w-full sm:w-52">
                 <Image
-                  src="/images/logo.jpg"
+                  src={SITE_LOGO_SRC}
                   alt="Garage Nagel"
                   fill
                   className="object-contain object-left"
-                  sizes="(max-width: 640px) 184px, 216px"
+                  sizes="(max-width: 640px) 176px, 208px"
                 />
               </span>
             </div>

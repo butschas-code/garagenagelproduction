@@ -17,7 +17,7 @@ export default function LeistungShowcase({
         <article className="group overflow-hidden rounded-[1.75rem] border border-neutral-200/90 bg-white shadow-[0_8px_40px_rgb(12_12_15/0.07)] transition-shadow duration-500 hover:shadow-[0_20px_56px_rgb(200_16_46/0.1)] sm:rounded-[2rem]">
           <div className="grid lg:grid-cols-2 lg:items-stretch">
             <div
-              className={`relative min-h-[240px] sm:min-h-[300px] lg:min-h-[min(100%,420px)] ${
+              className={`relative min-h-[240px] w-full overflow-hidden bg-neutral-100 sm:min-h-[300px] lg:h-full lg:min-h-[min(100%,420px)] ${
                 reverse ? "lg:order-2" : "lg:order-1"
               }`}
             >
@@ -25,16 +25,13 @@ export default function LeistungShowcase({
                 src={entry.imageSrc}
                 alt={entry.imageAlt}
                 fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                unoptimized
+                className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 quality={85}
               />
               <div
-                className={`pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/55 via-primary/10 to-transparent lg:bg-gradient-to-r ${
-                  reverse
-                    ? "lg:from-transparent lg:via-primary/5 lg:to-primary/35"
-                    : "lg:from-primary/35 lg:via-primary/5 lg:to-transparent"
-                }`}
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent opacity-80"
                 aria-hidden
               />
             </div>
